@@ -7,6 +7,7 @@ RUN apt-get update && \
     bundle install
 
 RUN cd /app/testing123 && \
+    rake db:create && \
     rails generate controller pages && \
     rm -rf public/index.html && \
     echo "class PagesController < ApplicationController\n\tdef home\n\t\tputs 'event occured'\n\tend\nend" > app/controllers/pages_controller.rb && \
